@@ -6,7 +6,7 @@
 - ENTER: Fechar seletor de cores.
 
 #### Versôes
-- [Windows: ](https://)
-- [Linux: ](https://)
-- [Web: ](https://) 
+- [Windows](https://github.com/Plataforma-Ciencia-em-Sintese/color-pallete-tool/raw/main/export/windows/ColorPaletteTool.exe)
+- [Linux](https://github.com/Plataforma-Ciencia-em-Sintese/color-pallete-tool/raw/main/export/linux/ColorPaletteTool.x86_64)
+- [Navegador](https://plataforma-ciencia-em-sintese.github.io/color-pallete-tool/deploy/index.html) 
 
