@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -19,7 +20,6 @@ anchor_left = 0.00488281
 anchor_top = 0.09
 anchor_right = 0.137695
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PL1
 PRIMARY_LIGHT_1"
@@ -34,7 +34,6 @@ anchor_left = 0.147461
 anchor_top = 0.09
 anchor_right = 0.280273
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PL2
 PRIMARY_LIGHT_2"
@@ -49,7 +48,6 @@ anchor_left = 0.290039
 anchor_top = 0.09
 anchor_right = 0.422852
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PL1
 PRIMARY_LIGHT_1"
@@ -64,7 +62,6 @@ anchor_left = 0.432617
 anchor_top = 0.09
 anchor_right = 0.566406
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PB
 PRIMARY_BASE"
@@ -79,7 +76,6 @@ anchor_left = 0.576172
 anchor_top = 0.09
 anchor_right = 0.708984
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PD1
 PRIMARY_DARK_1"
@@ -94,7 +90,6 @@ anchor_left = 0.71875
 anchor_top = 0.09
 anchor_right = 0.851562
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PD2
 PRIMARY_DARK_2"
@@ -109,7 +104,6 @@ anchor_left = 0.861328
 anchor_top = 0.09
 anchor_right = 0.995117
 anchor_bottom = 0.146667
-margin_top = -3.8147e-06
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PD3
 PRIMARY_DARK_3"
@@ -619,25 +613,25 @@ V/B: 21"
 selection_enabled = true
 
 [node name="ChangeColorPrimary" type="Button" parent="."]
-anchor_left = 0.448242
+anchor_left = 0.442383
 anchor_top = 0.401667
-anchor_right = 0.552734
+anchor_right = 0.554688
 anchor_bottom = 0.435
 focus_mode = 0
 enabled_focus_mode = 0
-text = "change color"
+text = "ESCOLHA A COR"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="ChangeColorSecondary" type="Button" parent="."]
-anchor_left = 0.448242
+anchor_left = 0.443359
 anchor_top = 0.881667
-anchor_right = 0.552734
+anchor_right = 0.555664
 anchor_bottom = 0.915
 focus_mode = 0
 enabled_focus_mode = 0
-text = "change color"
+text = "ESCOLHA A COR"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -653,11 +647,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ColorPicker" type="ColorPicker" parent="PanelContainerPrimary"]
-margin_left = 31.0
-margin_top = 31.0
-margin_right = 389.0
-margin_bottom = 509.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainerPrimary"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="PanelContainerPrimary/VBoxContainer"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "FECHAR SELETOR DE CORES"
+
+[node name="ColorPicker" type="ColorPicker" parent="PanelContainerPrimary/VBoxContainer"]
+margin_left = 35.0
+margin_top = 35.0
+margin_right = 393.0
+margin_bottom = 513.0
 edit_alpha = false
 hsv_mode = true
 presets_enabled = false
@@ -673,16 +676,42 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ColorPicker" type="ColorPicker" parent="PanelContainerSecondary"]
-margin_left = 35.0
-margin_top = 35.0
-margin_right = 393.0
-margin_bottom = 513.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainerSecondary"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 365.0
+margin_bottom = 485.0
+
+[node name="Button" type="Button" parent="PanelContainerSecondary/VBoxContainer"]
+margin_right = 357.0
+margin_bottom = 20.0
+text = "FECHAR SELETOR DE CORES"
+
+[node name="ColorPicker" type="ColorPicker" parent="PanelContainerSecondary/VBoxContainer"]
+margin_top = 24.0
+margin_right = 357.0
+margin_bottom = 462.0
 edit_alpha = false
 hsv_mode = true
 presets_enabled = false
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+expand = true
+
 [connection signal="pressed" from="ChangeColorPrimary" to="." method="_on_ChangeColorPrimary_pressed"]
 [connection signal="pressed" from="ChangeColorSecondary" to="." method="_on_ChangeColorSecondary_pressed"]
-[connection signal="color_changed" from="PanelContainerPrimary/ColorPicker" to="." method="_on_PrimaryColorPicker_color_changed"]
-[connection signal="color_changed" from="PanelContainerSecondary/ColorPicker" to="." method="_on_SecondaryColorPicker_color_changed"]
+[connection signal="pressed" from="PanelContainerPrimary/VBoxContainer/Button" to="." method="_on_close_color_selector"]
+[connection signal="color_changed" from="PanelContainerPrimary/VBoxContainer/ColorPicker" to="." method="_on_PrimaryColorPicker_color_changed"]
+[connection signal="pressed" from="PanelContainerSecondary/VBoxContainer/Button" to="." method="_on_close_color_selector"]
+[connection signal="color_changed" from="PanelContainerSecondary/VBoxContainer/ColorPicker" to="." method="_on_SecondaryColorPicker_color_changed"]

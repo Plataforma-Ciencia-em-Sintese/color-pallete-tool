@@ -199,8 +199,8 @@ func _on_ChangeColorPrimary_pressed() -> void:
 	var panel_picker2: PanelContainer = $PanelContainerSecondary
 	panel_picker2.visible = false
 	panel_picker1.visible = true
-	panel_picker1.get_node("ColorPicker").color = get_primary()
-	panel_picker1.get_node("ColorPicker").add_preset(Color(PRIMARY))
+	$PanelContainerPrimary/VBoxContainer/ColorPicker.color = get_primary()
+	$PanelContainerPrimary/VBoxContainer/ColorPicker.add_preset(Color(PRIMARY))
 
 
 func _on_ChangeColorSecondary_pressed() -> void:
@@ -208,8 +208,8 @@ func _on_ChangeColorSecondary_pressed() -> void:
 	var panel_picker1: PanelContainer = $PanelContainerPrimary
 	panel_picker1.visible = false
 	panel_picker2.visible = true
-	panel_picker2.get_node("ColorPicker").color = get_secondary()
-	panel_picker2.get_node("ColorPicker").add_preset(Color(SECONDARY))
+	$PanelContainerSecondary/VBoxContainer/ColorPicker.color = get_secondary()
+	$PanelContainerSecondary/VBoxContainer/ColorPicker.add_preset(Color(SECONDARY))
 
 
 func _on_PrimaryColorPicker_color_changed(color: Color) -> void:
@@ -218,3 +218,10 @@ func _on_PrimaryColorPicker_color_changed(color: Color) -> void:
 
 func _on_SecondaryColorPicker_color_changed(color: Color) -> void:
 	set_secondary(color)
+
+
+func _on_close_color_selector() -> void:
+	var panel_picker_primary: PanelContainer = $PanelContainerPrimary
+	var panel_picker_secondary: PanelContainer = $PanelContainerSecondary
+	panel_picker_primary.visible = false
+	panel_picker_secondary.visible = false
